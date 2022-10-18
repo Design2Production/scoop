@@ -52,13 +52,13 @@ set-executionpolicy remotesigned -scope currentuser
 
 3. Run the install script with the appropraite installation parameters for example:
 <pre>
-.\InstallDeviceProxy.ps1 Production new singlePC QIC-Indoor-002 DPEMS-V1_DBV2
+.\InstallDeviceProxy.ps1 Production new singlePC Surevision-Indoor-002 DPEMS-V1_DBV2
 </pre>
 The arguments are as follows:
    1. <pre>Production = which server to use: Staging | Production</pre>
    2. <pre>new = old installation folder: new | old Installation Folder</pre>
    3. <pre>singlePc = InstallationType: singlePC|dualPC</pre>
-   4. <pre>QIC-Indoor-002 = Unique DeviceId</pre>
+   4. <pre>Surevision-Indoor-002 = Unique DeviceId</pre>
    5. <pre>DPEMS-V1_DBV2 = DPEMS Hardware Indoor Units: DPEMS-V1 | DPEMS-V1_DBV2 | DPEMS-V1_DBV3 | DPEMS-V1_FANEXT</pre>
    6. <pre>DPEMS-V1_DBV2 = DPEMS Hardware Outdoor Units: DPEMS-V2</pre>
 

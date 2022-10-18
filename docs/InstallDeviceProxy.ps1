@@ -1,7 +1,7 @@
 #Requires -RunAsAdministrator
 Set-PSDebug -Trace 0
 
-$repo = 'scoop-dev'
+$repo = 'scoop'
 
 Function SerialDisableDPEMSWatchDog
 {

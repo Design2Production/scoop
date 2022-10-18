@@ -1,5 +1,5 @@
 $application = $args[0]
-$repo = $args[1]
+$repo = 'scoop'
 
 Switch ($application)
 {
@@ -8,17 +8,6 @@ Switch ($application)
     default
     {
         Write-Output 'applicaiton needs to be specified DeviceProxy | RemoteCommandRunner'
-        exit 1
-    }
-}
-
-Switch ($repo)
-{
-    'scoop-dev' {}
-    'scoop' {}
-    default
-    {
-        Write-Output 'repo needs to be specified scoop | scoop-dev'
         exit 1
     }
 }

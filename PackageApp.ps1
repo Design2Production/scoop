@@ -11,6 +11,16 @@ Switch ($application)
         exit 1
     }
 }
+Switch ($repo)
+{
+    'scoop-dev' {}
+    'scoop' {}
+    default
+    {
+        Write-Output 'repo needs to be specified scoop | scoop-dev'
+        exit 1
+    }
+}
 
 $version = (Get-Item ..\WindowsBuilds\$application\$application.dll).VersionInfo.FileVersion
 

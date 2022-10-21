@@ -11,6 +11,7 @@ Switch ($application)
         exit 1
     }
 }
+
 Switch ($repo)
 {
     'scoop-dev' {}

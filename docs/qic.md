@@ -3,6 +3,7 @@
 [DeviceProxy Installation](#deviceproxy-installation)
 
 [DeviceProxy Uninstallation](#deviceproxy-uninstallation)
+
 [Notes on Cloning of PCs](#notes-on-cloning-of-pcs)
 
 # DeviceProxy Installation

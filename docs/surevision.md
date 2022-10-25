@@ -3,9 +3,11 @@
 [DeviceProxy Installation](#deviceproxy-installation)
 
 [DeviceProxy Uninstallation](#deviceproxy-uninstallation)
+
 [RemoteCommandRunner Installation for Double Sided Units](#remotecommandrunner-installation)
 
 [Notes on Cloning of PCs](#notes-on-cloning-of-pcs)
+
 # DeviceProxy Installation
 
 ## Pre Installation

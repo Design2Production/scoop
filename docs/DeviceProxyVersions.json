@@ -9,6 +9,13 @@
         },
         {
             "displayName": "DeviceProxy",
+            "version": "1.7.5.12",
+            "url": "https://design2production.github.io/scoop/windows/dpems/DeviceProxy_1.7.5.12.zip",
+            "hash": "3BF4E4041365C23ED453A081BBDC50B48F601132C9A8CCC04DEE11679019D67C",
+            "releasedate": "2022-11-16T10:29:25:386Z"
+        },
+        {
+            "displayName": "DeviceProxy",
             "version": "1.7.5.11",
             "url": "https://design2production.github.io/scoop/windows/dpems/DeviceProxy_1.7.5.11.zip",
             "hash": "33BA764354A28E1AC2DE19B7FF5602F7D0153DAE8B07F89541201018324AC7CB",

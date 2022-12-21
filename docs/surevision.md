@@ -82,6 +82,8 @@ rm -r <b>OldInstallationFolder</b>
 
 # RemoteCommandRunner Installation for Double Sided Units
 
+***The Remote command runner should ONLY be installed on the "Second" PC in double sided dual PC units.***
+
 ## Pre Installation
 1. Start Powershell as Administrator
     1. Press the **Windows** key

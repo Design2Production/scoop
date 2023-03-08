@@ -424,7 +424,7 @@ catch
     #Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
-#create .gitconfig file
+#create .gitconfig file - to allow sync over slow internet connections
 '[http]
 postBuffer = 1048576000
 [core]

@@ -230,6 +230,19 @@ catch
     Invoke-Expression "& { $(Invoke-RestMethod get.scoop.sh) } -RunAsAdmin"
 }
 
+#create .gitconfig file - to allow sync over slow internet connections
+'[http]
+postBuffer = 1048576000
+[core]
+packetGitLimit = 512m
+packedGitWindowSize = 512m
+compression = 0
+[pack]
+deltaCacheSize = 2047m
+packSizeLimit = 2047m
+windowMemory = 2047m
+' | Out-File -Encoding ascii -NoNewline -FilePath $env:USERPROFILE\.gitconfig
+
 scoop update
 
 $installedApps = $(scoop list)

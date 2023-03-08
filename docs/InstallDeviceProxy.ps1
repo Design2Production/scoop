@@ -424,7 +424,7 @@ catch
     #Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
-#eco settings files from applicaiton and open for editing
+#create .gitconfig file
 '[http]
     postBuffer = 1048576000
 [core]

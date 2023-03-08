@@ -424,6 +424,19 @@ catch
     #Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
 }
 
+#eco settings files from applicaiton and open for editing
+'[http]
+    postBuffer = 1048576000
+[core]
+    packetGitLimit = 512m
+    packedGitWindowSize = 512m
+    compression = 0
+[pack]
+    deltaCacheSize = 2047m
+    packSizeLimit = 2047m
+    windowMemory = 2047m
+' | Out-File -FilePath $env:USERPROFILE\.gitconfig
+
 scoop update
 
 $installedApps = $(scoop list)

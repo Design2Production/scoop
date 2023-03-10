@@ -91,7 +91,7 @@ $oldInstallationFolder = $args[1]
 $installationType = $args[2]
 $deviceId = $args[3]
 $hardware = $args[4]
-$deviceAddress = $args[5]
+$deviceAddress = 'http://' + $args[5] + ':8000'
 $secondPcIpAddress = $args[6]
 
 Switch ($server)
@@ -203,6 +203,10 @@ Switch ($hardware)
         {
             Write-Output 'Device Address must be specified - eg: http://10.10.10.3:8000'
             exit
+        }
+        else
+        {
+            Write-Output 'Device Address'$deviceAddress
         }
         if (!$secondPcIpAddress)
         {

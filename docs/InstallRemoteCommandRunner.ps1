@@ -85,7 +85,7 @@ else
     }
 }
 
-if ($dpemsType -eq 'DPEMS-V2')
+if ($dpemsType -eq 'DPEMS-V1')
 {
     # Set up the IP Address for the secondard Ethernet port for the Dual PC setup for DPEMS-V1
     $newIPAddress = '192.168.64.2'
@@ -232,6 +232,7 @@ if ($dpemsType -eq 'DPEMS-V2')
 }
 else
 {
+    $physicalAdapters = Get-NetAdapter -Physical | Where-Object { $_.PhysicalMediaType -eq '802.3' }
     foreach ($physicalAdapter in $physicalAdapters)
     {
         $configurations = Get-NetIPAddress -InterfaceIndex $physicalAdapter.InterfaceIndex -AddressFamily IPv4

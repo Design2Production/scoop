@@ -2,7 +2,7 @@
 Set-PSDebug -Trace 0
 
 $repo = 'scoop'
-$installationType = $args[0]
+$dpemsType = $args[0]
 
 Write-Output 'Downloading and installing RemoteCommandRunner'
 

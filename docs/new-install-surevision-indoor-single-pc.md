@@ -1,8 +1,8 @@
 # DP Windows Installation for SureVision - Indoor - Single PC
 
-[DeviceProxy Installation](#deviceproxy-installation)
+[DeviceProxy Installation](#installation)
 
-[DeviceProxy Uninstallation](#deviceproxy-uninstallation)
+[DeviceProxy Uninstallation](#uninstallation)
 
 [Notes on Cloning of PCs](#notes-on-cloning-of-pcs)
 
@@ -19,20 +19,11 @@
     3. Right-Click on **Windows Powershell*** and select **"Run As Administrator"**
     4. Click on **Yes** when asked for permission
 
-3. If Updating an existing machine
-
-    1. Remove the old start batch file which was previously located in the desktop folder
-    <pre> rm C:\Users\SureVision\Desktop\start.cmd </pre>
-
-    2. Remove the old run task from the scheduler
-    <pre> Unregister-ScheduledTask -TaskName "RunNetworkProxy" -Confirm:$false </pre>
-    *If your previous installation had a different task name created, you can also open <b>Task Scheduler</b> to ensure the start up task has been removed*
-
 ## Installation
 
-1. Download the install script
+1. Download the install script for a NEW installation
 <pre>
-Invoke-WebRequest -Uri https://design2production.github.io/scoop/InstallDeviceProxy.ps1 -OutFile InstallDeviceProxy.ps1
+Invoke-WebRequest -Uri https://design2production.github.io/scoop/NewInstallDeviceProxy.ps1 -OutFile NewInstallDeviceProxy.ps1
 </pre>
 
 If the installation script fails with ***Invoke-WebRequest : The request was aborted: Could not create SSL/TLS secure channel*** then enter the following command and retry the Web-Request
@@ -47,34 +38,19 @@ set-executionpolicy remotesigned -scope currentuser
 
 3. Run the install script:
 
-For a NEW clean install:
-
-<pre>.\InstallDeviceProxy.ps1 Production new singlePC Surevision-Indoor-002 DPEMS-V1_DBV3</pre>
-
-For an upgrade of an old system:
-
-
-
-<pre>.\InstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" singlePC Surevision-Indoor-002 DPEMS-V1_DBV3</pre>
+<pre>.\NewInstallDeviceProxy.ps1 Production singlePC Surevision-Indoor-0002 DPEMS-V1_DBV3</pre>
 
 The arguments are as follows:
    <pre>Production = which server to use: Staging | Production</pre>
-   <pre>new = old installation folder: new | old Installation Folder</pre>
    <pre>singlePc = InstallationType: singlePC|dualPC</pre>
    <pre>Surevision-Indoor-002 = Unique DeviceId</pre>
    <pre>DPEMS-V1_DBV2 = DPEMS Hardware Indoor Units: DPEMS-V1 | DPEMS-V1_DBV2 | DPEMS-V1_DBV3 | DPEMS-V1_FANEXT</pre>
-   <pre>DPEMS-V1_DBV2 = DPEMS Hardware Outdoor Units: DPEMS-V2</pre>
 
 ## Post Instllation
 
 1. Delete the install script
 <pre>
-rm ./InstallDeviceProxy.ps1
-</pre>
-
-2. Delete the old installation (Note: this will be automated in a future version of the installation script)
-<pre>
-rm -r <b>OldInstallationFolder</b>
+rm ./NewInstallDeviceProxy.ps1
 </pre>
 
 # DeviceProxy Uninstallation

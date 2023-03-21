@@ -87,11 +87,9 @@ if ( $psversiontable.psversion.major -lt 3 )
 }
 
 $server = $args[0]
-$installationType = $args[1]
-$deviceId = $args[2]
-$hardware = $args[3]
-$deviceAddress = 'http://' + $args[4] + ':8000'
-$secondPcIpAddress = $args[5]
+$oldInstallationFolder = $args[1]
+$installationType = $args[2]
+$secondPcIpAddress = $args[3]
 
 Switch ($server)
 {
@@ -105,6 +103,12 @@ Switch ($server)
 }
 $server = 'Windows' + $server
 
+if (!$oldInstallationFolder)
+{
+    Write-Output 'Old installation folder must be specified'
+    exit
+}
+
 Switch ($installationType)
 {
     'singlePC' {}
@@ -116,9 +120,56 @@ Switch ($installationType)
     }
 }
 
+$settingFile = "$oldInstallationFolder\conf\setting.json"
+$dataFile = "$oldInstallationFolder\data\data.json"
+if ($(Test-Path -Path $settingFile) -ne $true)
+{
+    Write-Output "setting.json does not exist in old Installation folder $settingFile"
+    exit
+}
+if ($(Test-Path -Path $dataFile) -ne $true)
+{
+    Write-Output "data.json does not exist in old Installation folder $oldInstallationFolder\..\data\data.json"
+    exit
+}
+$settingFileJson = Get-Content "$oldInstallationFolder\conf\setting.json" -Raw | ConvertFrom-Json
+$deviceId = $settingFileJson.deviceId
+$deviceAddress = $settingFileJson.deviceAddress
+
+$appsettingsJson = Get-Content "$oldInstallationFolder\bin\appsettings.json" -Raw | ConvertFrom-Json
+if ($appsettingsJson.deviceMode -eq 'http')
+{
+    Write-Output 'device mode found: http' 
+    $hardware = 'DPEMS-V2'
+}
+elseif ($appsettingsJson.deviceMode -eq 'serial')
+{
+    Write-Output 'device mode found: serial' 
+    if ($appsettingsJson.DaughterBoardType -eq 'V2')
+    {
+        Write-Output 'daughterboard found: V2' 
+        $hardware = 'DPEMS-V1_DBV2'
+    }
+    elseif ($appsettingsJson.DaughterBoardType -eq 'V3')
+    {
+        Write-Output 'daughterboard found: V3' 
+        $hardware = 'DPEMS-V1_DBV3'
+    }
+    else
+    {
+        Write-Output 'DaughterBoardType not found in appsettings.json' 
+        exit
+    }
+}
+else 
+{
+    Write-Output 'deviceMode not found in appsettings.json' 
+    exit
+}
+
 if (!$deviceId)
 {
-    Write-Output 'A unique Device ID must be specified - eg: CompanyName-DeviceType-001'
+    Write-Output 'Device Id Not found in setting.json'
     exit 1
 }
 
@@ -148,7 +199,7 @@ Switch ($hardware)
     {
         if (!$deviceAddress)
         {
-            Write-Output 'Device Address must be specified - eg: http://10.10.10.3:8000'
+            Write-Output 'Device Address not found in setting.json'
             exit
         }
         else
@@ -164,7 +215,7 @@ Switch ($hardware)
     }
     default
     {
-        Write-Output 'hardware needs to be specified DPEMS-V1 | DPEMS-V1_DBV2 | DPEMS-V1_DBV3 | DPEMS-V1_FANEXT | DPEMS-V2'
+        Write-Output 'hardware not found in appsetting.json'
         exit 1
     }
 }

@@ -89,10 +89,10 @@ if ( $psversiontable.psversion.major -lt 3 )
 $server = $args[0]
 $oldInstallationFolder = $args[1]
 $installationType = $args[2]
-$deviceId = $args[3]
-$hardware = $args[4]
-$deviceAddress = 'http://' + $args[5] + ':8000'
-$secondPcIpAddress = $args[6]
+$hardware = $args[3]
+$deviceAddress = 'http://' + $args[4] + ':8000'
+$secondPcIpAddress = $args[5]
+$newDeviceId = $args[6]
 
 Switch ($server)
 {
@@ -137,6 +137,9 @@ if ($oldInstallationFolder -ne 'new')
         Write-Output "data.json does not exist in old Installation folder $oldInstallationFolder\..\data\data.json"
         exit
     }
+    $settingFileJson = Get-Content "$oldInstallationFolder\conf\setting.json" -Raw | ConvertFrom-Json
+    $deviceId = $settingFileJson.deviceId
+
     $appsettingsJson = Get-Content "$oldInstallationFolder\bin\appsettings.json" -Raw | ConvertFrom-Json
     if ($appsettingsJson.deviceMode -eq 'http')
     {
@@ -171,7 +174,11 @@ if ($oldInstallationFolder -ne 'new')
 
 if (!$deviceId)
 {
-    Write-Output 'A unique Device ID must be specified - eg: CompanyName-DeviceType-001'
+    $deviceId = $newDeviceId
+    if (!$deviceId)
+    {
+        Write-Output 'A unique Device ID must be specified - eg: CompanyName-DeviceType-001'
+    }
     exit 1
 }
 

@@ -19,10 +19,10 @@
     3. Right-Click on **Windows Powershell*** and select **"Run As Administrator"**
     4. Click on **Yes** when asked for permission
 
-3. If Updating an existing machine (Note: this will be automated in a future version of the installation script)
+3. If Updating an existing machine
 
     1. Remove the old start batch file which was previously located in the desktop folder
-    <pre> rm <b>pathToDesktop</b>/start.cmd </pre>
+    <pre> rm C:\Users\SureVision\Desktop\start.cmd </pre>
 
     2. Remove the old run task from the scheduler
     <pre> Unregister-ScheduledTask -TaskName "RunNetworkProxy" -Confirm:$false </pre>
@@ -47,7 +47,15 @@ set-executionpolicy remotesigned -scope currentuser
 
 3. Run the install script:
 
+For a NEW clean install:
+
 <pre>.\InstallDeviceProxy.ps1 Production new singlePC Surevision-Indoor-002 DPEMS-V1_DBV3</pre>
+
+For an upgrade of an old system:
+
+
+
+<pre>.\InstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" singlePC Surevision-Indoor-002 DPEMS-V1_DBV3</pre>
 
 The arguments are as follows:
    <pre>Production = which server to use: Staging | Production</pre>

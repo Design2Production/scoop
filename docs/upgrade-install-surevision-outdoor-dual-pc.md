@@ -34,18 +34,17 @@ Invoke-WebRequest -Uri https://design2production.github.io/scoop/UpgradeInstallD
 
 > If the installation script fails with:
 >
->***Invoke-WebRequest : The request was aborted: Could not create SSL/TLS secure channel***
->
+> ***Invoke-WebRequest : The request was aborted: Could not create SSL/TLS secure channel***
 > then enter the following command and retry the Invoke-Web-Request command
->
-><pre>[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"</pre>
+> <pre>
+> [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
+> </pre>
+> If the installation script can't run then enter the following command to allow Powershell to execute local scripts.
+> <pre>
+> Set-Executionpolicy remotesigned -scope currentuser -Force 
+> </pre>
 
-3. If not already enabled, allow Powershell to execute local scripts, when prompted, select **[A] Yes to All** + **ENTER** to allow local scripts to be executed
-<pre>
-set-executionpolicy remotesigned -scope currentuser  
-</pre>
-
-4. Run the install script:
+3. Run the install script:
 
 <pre>.\UpgradeInstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" dualPC 10.1.10.101</pre> 
 

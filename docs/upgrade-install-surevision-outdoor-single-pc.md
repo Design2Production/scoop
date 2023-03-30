@@ -1,4 +1,4 @@
-# DP Windows Installation for SureVision - Outdoor - Single PC
+# DP Installation for SureVision - Outdoor - Single PC
 
 [DeviceProxy Installation](#deviceproxy-installation)
 

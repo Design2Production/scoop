@@ -1,4 +1,4 @@
-# DP Windows Installation
+# DP Windows Installation Guides
 
 [Sure Vision](https://design2production.github.io/scoop/surevision.html)
 

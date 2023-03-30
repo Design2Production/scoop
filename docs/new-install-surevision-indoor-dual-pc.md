@@ -1,4 +1,4 @@
-# DP Windows New Installation for SureVision -Indoor - Dual PC
+# DP New Installation for SureVision - Indoor - Dual PC
 
 # Pre Installation
 Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
@@ -10,7 +10,7 @@ On Both PCs:
 
 # RemoteCommandRunner Installation
 
-***The Remote command runner should ONLY be installed on the "Second" PC in a dual PC setup.***
+***The Remote command runner should ONLY be installed on the "Second" PC in a dual PC setup***
 
 If setting up a new PC B installtion follow [these](https://design2production.github.io/scoop/new-rcr-install-surevision-indoor-pc.html) instructions.
 

@@ -1,4 +1,4 @@
-# DP Windows Installation for QIC
+# DP Installation for QIC
 
 [DeviceProxy Installation](#deviceproxy-installation)
 

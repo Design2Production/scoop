@@ -1,10 +1,10 @@
-# DP Windows Device Proxy Installation for SureVision
+# DP Device Proxy Installation for SureVision
 
-DPs new Windows software management system is based on a repo called "scoop". Once installed, the software will automatically check for and install any updates at 3am each day. An acitve internet connection is required for installation of the proxy via the guides below.
+DPs new Windows software management system is based on a system called "scoop". Once installed, the software will automatically check for and install any updates at 3am each day. An active internet connection is required for installation of the proxy via the guides below.
 
 ## Installing the Device Proxy on a NEW PC
 
-Please follow these guides when installing onto new or clean PCs that have no prior Device Proxy installed.
+Please follow these guides when installing onto new or cleaned PCs that have no prior Device Proxy versions installed.
 
 ### Indoor Units
 [New Install - SureVision - Indoor - Single PC](https://design2production.github.io/scoop/new-install-surevision-indoor-single-pc.html)

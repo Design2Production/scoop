@@ -1,4 +1,4 @@
-# DP Windows Installation for Surevision
+# DP New Installation for SureVision - Outdoor - Dual PC
 
 # Pre Installation
 Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
@@ -53,7 +53,7 @@ set-executionpolicy remotesigned -scope currentuser
 The arguments are as follows:
 <pre>
       Production = which server to use: Staging | Production
-        singlePc = InstallationType: singlePC|dualPC
+          dualPC = InstallationType: singlePC|dualPC
 Unique-Device-Id = Surevision Unique Device Id for this unit
         DPEMS-V2 = DPEMS Hardware Outdoor Units: DPEMS-V2
       10.10.10.3 = The Ip Address of the DPEMS-V2

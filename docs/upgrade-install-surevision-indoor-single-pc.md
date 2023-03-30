@@ -1,4 +1,4 @@
-# DP Windows Upgrade Installation for SureVision - Indoor - Single PC
+# DP Upgrade Installation for SureVision - Indoor - Single PC
 
 # Pre Installation
 Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.

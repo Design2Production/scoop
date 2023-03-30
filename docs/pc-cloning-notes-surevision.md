@@ -1,4 +1,4 @@
-# DP Windows PC Cloning Notes - Surevision
+# DP PC Cloning Notes - Surevision
 
 You can follow the installation proceedure for your A and B PCs and then clone the images for faster production deployment, however, the ***deviceID*** filed will then be the same on the new images.
 

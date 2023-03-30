@@ -1,4 +1,4 @@
-# DP Windows Uninstallation of Proxy
+# DP Uninstallation of Proxy
 
 1. Download the uninstall script
 <pre>

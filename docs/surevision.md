@@ -40,4 +40,4 @@ Please follow this guide if you want to uninstall a scoop based device proxy fro
 
 Please refer to these notes if you would like to clone an existing scoop based Device Proxy installtion to multiple PCs.
 
-[PC Cloning Notes](https://design2production.github.io/scoop/pc-cloning-notes=surevision.html)
+[PC Cloning Notes](https://design2production.github.io/scoop/pc-cloning-notes-surevision.html)

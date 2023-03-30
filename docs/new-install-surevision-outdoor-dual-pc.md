@@ -14,7 +14,7 @@ On Both PCs:
 
 If setting up a new PC B installtion follow [these](https://design2production.github.io/scoop/new-rcr-install-surevision-outdoor-pc.html) instructions.
 
-If upgrading and old PC B installation follow [these](https://design2production.github.io/scoop/upgrade-rcr-install-surevision-outdoor-pc.html) instructions:
+If upgrading an old PC B installation follow [these](https://design2production.github.io/scoop/upgrade-rcr-install-surevision-outdoor-pc.html) instructions:
 
 > During the installation script the IP Address of the unit will be reported. Note this IP address, as it is needed when installing the Device Proxy (see below).
 

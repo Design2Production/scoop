@@ -50,7 +50,7 @@ set-executionpolicy remotesigned -scope currentuser
 <pre>.\UpgradeInstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" dualPC 10.1.10.101</pre> 
 
 The arguments are as follows:
-<<pre>
+<pre>
                                                       Production = which server to use: Staging | Production
 "C:\Program Files\dp-NetworkProxy-Surevision-Indoor-Windows-V1.6 = old installation folder
                                                         singlePc = InstallationType: singlePC|dualPC

@@ -34,7 +34,7 @@ set-executionpolicy remotesigned -scope currentuser
 
 4. Run the install script:
 
-<pre>.\UpgradeDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" singlePC</pre>
+<pre>.\UpgradeInstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" singlePC</pre>
 
 The arguments are as follows:
 <pre>

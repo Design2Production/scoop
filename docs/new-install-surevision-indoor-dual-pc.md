@@ -12,9 +12,9 @@ On Both PCs:
 
 ***The Remote command runner should ONLY be installed on the "Second" PC in a dual PC setup.***
 
-If setting up a new PC B installtion follow [these](https://design2production.github.io/scoop/new-rcr-install-surevision-outdoor-pc.html) instructions.
+If setting up a new PC B installtion follow [these](https://design2production.github.io/scoop/new-rcr-install-surevision-indoor-pc.html) instructions.
 
-If upgrading and old PC B installation follow [these](https://design2production.github.io/scoop/upgrade-rcr-install-surevision-outdoor-pc.html) instructions:
+If upgrading an old PC B installation follow [these](https://design2production.github.io/scoop/upgrade-rcr-install-surevision-indoor-pc.html) instructions:
 
 # DeviceProxy Installation
 
@@ -56,4 +56,4 @@ Unique-Device-Id = Surevision Unique Device Id for this unit
    DPEMS-V1_DBV3 = DPEMS Hardware for Indoor Units
 </pre>
 
-> Ensure there are no errors reported during installation - it can take a long time to install, particularly on machines with slow or intermittant internet***
+> Ensure there are no errors reported during installation - it can take a long time to install, particularly on machines with slow or intermittant internet

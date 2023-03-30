@@ -1,11 +1,17 @@
-# DP Windows Upgrade Installation for SureVision - Indoor - Single PC
+# DP Windows New Remote Command Runner Installation for SureVision -Indoor - Dual PC
 
 # Pre Installation
 Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
 
-    1. Connect the longer Ethernet cable from the PCs to the swith to the left most port (when looking from the front of the PC)
+On Both PCs:
 
-# DeviceProxy Installation
+    1. Connect the longer Ethernet cable from the PCs to the swith to the left most port (when looking from the front of the PC)
+    2. Connect the short Ethernet cable between the PCs to the right most port (when looking from the front of the PC)
+
+# RemoteCommandRunner Installation
+
+***The Remote command runner should ONLY be installed on the "Second" PC in a dual PC setup.***
+
 1. Start Powershell as Administrator
 <pre>
     1. Press the **Windows** key
@@ -14,9 +20,9 @@ Ensure the Ethernet connection to the switch (connected to the internet) is made
     4. Click on **Yes** when asked for permission
 </pre>
 
-2. Download the install script to UPGRADE an old installation
+2. Download the install script
 <pre>
-Invoke-WebRequest -Uri https://design2production.github.io/scoop/UpgradeInstallDeviceProxy.ps1 -OutFile UpgradeInstallDeviceProxy.ps1
+Invoke-WebRequest -Uri https://design2production.github.io/scoop/NewInstallRemoteCommandRunner.ps1 -OutFile NewInstallRemoteCommandRunner.ps1
 </pre>
 
 > If the installation script fails with:
@@ -32,15 +38,9 @@ Invoke-WebRequest -Uri https://design2production.github.io/scoop/UpgradeInstallD
 set-executionpolicy remotesigned -scope currentuser  
 </pre>
 
-4. Run the install script:
-
-<pre>.\UpgradeDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" singlePC</pre>
-
-The arguments are as follows:
+4. Run the install script
 <pre>
-                                                      Production = which server to use: Staging | Production
-"C:\Program Files\dp-NetworkProxy-Surevision-Indoor-Windows-V1.6 = old installation folder
-                                                        singlePc = InstallationType: singlePC|dualPC
+.\NewInstallRemoteCommandRunner.ps1 DPEMS-V1
 </pre>
 
 > Ensure there are no errors reported during installation - it can take a long time to install, particularly on machines with slow or intermittant internet

@@ -1,6 +1,4 @@
-# DP Windows Installation for SureVision - Indoor - Dual PC
-
-[RemoteCommandRunner Installation](#remotecommandrunner-installation)
+# DP Windows Installation for SureVision - Outdoor - Single PC
 
 [DeviceProxy Installation](#deviceproxy-installation)
 
@@ -8,35 +6,12 @@
 
 [Notes on Cloning of PCs](#notes-on-cloning-of-pcs)
 
-## Pre Installation
-1. Ensure the Ethernet connections are made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
-
-    1. On both PCs, connect the short Ethernet cable between the PCs to the right most port (when looking from the front of the PC)
-    2. On both PCs, connect the longer Ethernet cables from the PCs to the swith to the left most port (when looking from the front of the PC)
-
-# RemoteCommandRunner Installation
-
-***The Remote command runner should ONLY be installed on the "Second" PC in a dual PC setup.***
+# DeviceProxy Installation
 
 ## Pre Installation
-1. Start Powershell as Administrator
-    1. Press the **Windows** key
-    2. Type Powershell
-    3. Right-Click on **Windows Powershell*** and select **"Run As Administrator"**
-    4. Click on **Yes** when asked for permission
+Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
 
-2. If Updating an existing machine (Note: this will be automated in a future version of the installation script)
-
-    1. Remove the old start batch file
-    <pre>
-    rm <b>pathToDesktop</b>/start.cmd
-    </pre>
-
-    2. Remove the old run task from the scheduler
-    <pre>
-    Unregister-ScheduledTask -TaskName "RunRemoteCommandRunner" -Confirm:$false
-    </pre>
-    *If your previous installation had a different task name created, you can also open <b>Task Scheduler</b> to ensure the start up task has been removed*
+On the main PC, connect the short Ethernet cable between the PC and the DPEMS to the right most port (when looking from the front of the PC)
 
 ## Installation
 
@@ -57,41 +32,6 @@
 
 3. Download the install script
 <pre>
-Invoke-WebRequest -Uri https://design2production.github.io/scoop/InstallRemoteCommandRunner.ps1 -OutFile InstallRemoteCommandRunner.ps1
-</pre>
-
-If the installation script fails with ***Invoke-WebRequest : The request was aborted: Could not create SSL/TLS secure channel*** then enter the following command and retry the Web-Request
-<pre>
-[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
-</pre>
-
-
-4. Allow Powershell to execute local scripts, when prompted, select **[A] Yes to All** + **ENTER** to allow local scripts to be executed
-<pre>
-set-executionpolicy remotesigned -scope currentuser  
-</pre>
-
-5. Run the install script
-<pre>
-.\InstallRemoteCommandRunner.ps1 DPEMS-V1
-</pre>
-
-## Post Instllation
-
-6. Delete the install script
-<pre>
-rm ./InstallRemoteCommandRunner.ps1
-</pre>
-
-2. Delete the old installation (Note: this will be automated in a future version of the installation script)
-<pre>
-rm -r <b>OldInstallationFolder</b>
-</pre>
-
-## Device Proxy Installation
-
-1. Download the install script
-<pre>
 Invoke-WebRequest -Uri https://design2production.github.io/scoop/InstallDeviceProxy.ps1 -OutFile InstallDeviceProxy.ps1
 </pre>
 
@@ -100,22 +40,23 @@ If the installation script fails with ***Invoke-WebRequest : The request was abo
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 </pre>
 
-2. Allow Powershell to execute local scripts, when prompted, select **[A] Yes to All** + **ENTER** to allow local scripts to be executed
+4. Allow Powershell to execute local scripts, when prompted, select **[A] Yes to All** + **ENTER** to allow local scripts to be executed
 <pre>
 set-executionpolicy remotesigned -scope currentuser  
 </pre>
 
-3. Run the install script:
+5. Run the install script with the appropraite installation parameters.
 
-<pre>.\InstallDeviceProxy.ps1 Production new dualPC Surevision-Indoor-002 DPEMS-V1_DBV3</pre>
+<pre>.\InstallDeviceProxy.ps1 Production new single Surevision-Outdoor-002 DPEMS-V2 10.10.10.3</pre> 
 
 The arguments are as follows:
-   <pre>Production = which server to use: Staging | Production</pre>
-   <pre>new = old installation folder: new | old Installation Folder</pre>
-   <pre>singlePc = InstallationType: singlePC|dualPC</pre>
-   <pre>Surevision-Indoor-002 = Unique DeviceId</pre>
-   <pre>DPEMS-V1_DBV2 = DPEMS Hardware Indoor Units: DPEMS-V1 | DPEMS-V1_DBV2 | DPEMS-V1_DBV3 | DPEMS-V1_FANEXT</pre>
-   <pre>DPEMS-V1_DBV2 = DPEMS Hardware Outdoor Units: DPEMS-V2</pre>
+<pre>Production = which server to use: Staging | Production</pre>
+<pre>new = old installation folder: new | old Installation Folder</pre>
+<pre>singlePc = InstallationType: singlePC|dualPC</pre>
+<pre>Surevision-Indoor-002 = Unique DeviceId</pre>
+<pre>DPEMS-V1_DBV2 = DPEMS Hardware Indoor Units: DPEMS-V1 | DPEMS-V1_DBV2 | DPEMS-V1_DBV3 | MS-V1_FANEXT</pre>
+<pre>DPEMS-V1_DBV2 = DPEMS Hardware Outdoor Units: DPEMS-V2</pre>
+<pre>10.10.10.3 = The Ip Address of the DPEMS-V2</pre>
 
 ## Post Instllation
 

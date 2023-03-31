@@ -2,6 +2,17 @@
 Set-PSDebug -Trace 0
 
 $repo = 'scoop'
+if ($repo -eq 'scoop-dev')
+{
+    Write-Output 'THIS IS A DEVELOPMENT VERSION OF THE DEVICE PROXY INSTALLER'
+    Write-Output 'Are you sure you want to continue installation?'
+    $answer = Read-Host -Prompt 'Type YES to continue'
+    if ($answer -ne 'YES')
+    {
+        Write-Output 'Installation Aborted'
+        exit 1
+    }
+}
 
 Function SerialDisableDPEMSWatchDog
 {
@@ -411,12 +422,7 @@ Remove-Item C:\Users\SureVision\Desktop\start.cmd -Force 2>$null
 Write-Output 'Remove old RunNetworkProxy scehduled task...'
 Unregister-ScheduledTask -TaskName 'RunNetworkProxy' -Confirm:$false
 
-Write-Output 'Stop the DeviceProxy.exe process...'
-taskkill /IM DeviceProxy.exe /F
-
-
 Write-Output 'Installing scoop...'
-
 $env:SCOOP = 'C:\scoop'
 [environment]::setEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
 

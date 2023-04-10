@@ -67,8 +67,8 @@ Function NetworkDisableDPEMSWatchDog
     {
         # disable the watchdog - both network and serial
         # the proxy will reenable it once it runs
-        $setting = Get-Content -Raw -Path C:\ProgramData\DP\DeviceProxy\setting.json | ConvertFrom-Json
-        $deviceAddress = $setting.deviceAddress
+        #$setting = Get-Content -Raw -Path C:\ProgramData\DP\DeviceProxy\setting.json | ConvertFrom-Json
+        #$deviceAddress = $setting.deviceAddress
         $postCommand = "$deviceAddress/setWatchDog"
         Write-Output $postCommand
 
@@ -217,7 +217,7 @@ Switch ($hardware)
         {
             Write-Output 'Device Address'$deviceAddress
         }
-        if (!$secondPcIpAddress)
+        if ($installationType -eq 'dualPC' -and !$secondPcIpAddress)
         {
             Write-Output 'Second Pc Ip Address must be specified - eg: 10.1.10.101'
             exit

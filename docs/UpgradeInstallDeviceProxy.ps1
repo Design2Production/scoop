@@ -526,7 +526,7 @@ if ($(Test-Path -Path $sermanFolder) -eq $true)
 }
 
 Write-Output 'Remove old DeviceProxy installation...'
-Remove-Item -r 'C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6'
+Remove-Item -r $oldInstallationFolder -Force 2>$null
 
 Write-Output 'Install DeviceProxy service'
 serman install $deviceProxyXml ASP_ENV=$environment --overwrite

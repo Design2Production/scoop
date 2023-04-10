@@ -166,7 +166,7 @@ Switch ($hardware)
         {
             Write-Output 'Device Address'$deviceAddress
         }
-        if (!$secondPcIpAddress)
+        if ($installationType -eq 'dualPC' -and !$secondPcIpAddress)
         {
             Write-Output 'Second Pc Ip Address must be specified - eg: 10.1.10.101'
             exit

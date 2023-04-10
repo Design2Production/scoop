@@ -35,7 +35,7 @@ Invoke-WebRequest -Uri https://design2production.github.io/scoop/NewInstallDevic
 
 3. Run the install script using the ***Unique-Device-Id*** for the unit:
 
-<pre>.\NewInstallDeviceProxy.ps1 Production new singlePC Unique-Device-Id DPEMS-V2 10.10.10.3</pre> 
+<pre>.\NewInstallDeviceProxy.ps1 Production singlePC Unique-Device-Id DPEMS-V2 10.10.10.3</pre> 
 
 The arguments are as follows:
 

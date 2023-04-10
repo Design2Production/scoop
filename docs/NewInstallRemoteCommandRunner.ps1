@@ -2,6 +2,7 @@
 Set-PSDebug -Trace 0
 
 $repo = 'scoop'
+
 if ($repo -eq 'scoop-dev')
 {
     Write-Output 'THIS IS A DEVELOPMENT VERSION OF THE REMOTE COMMAND RUNNER INSTALLER'
@@ -272,6 +273,10 @@ catch
 #create .gitconfig file - to allow sync over slow internet connections
 '[http]
 postBuffer = 1048576000
+maxRequestBuffer = 1048576000
+[https]
+postBuffer = 1048576000
+maxRequestBuffer = 1048576000
 [core]
 packetGitLimit = 512m
 packedGitWindowSize = 512m

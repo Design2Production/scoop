@@ -46,7 +46,7 @@ Invoke-WebRequest -Uri https://design2production.github.io/scoop/UpgradeInstallD
 
 3. Run the install script:
 
-<pre>.\UpgradeInstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Indoor-Windows-V1.6" dualPC 10.1.10.101</pre> 
+<pre>.\UpgradeInstallDeviceProxy.ps1 Production "C:\Program Files\dp-NetworkProxy-SureVision-Outdoor-Windows-V1.6" dualPC 10.1.10.101</pre> 
 
 The arguments are as follows:
 <pre>

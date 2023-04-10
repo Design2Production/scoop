@@ -13,6 +13,7 @@ if ($repo -eq 'scoop-dev')
         exit 1
     }
 }
+
 $dpemsType = $args[0]
 
 Write-Output 'Downloading and installing RemoteCommandRunner'

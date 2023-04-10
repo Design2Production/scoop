@@ -422,6 +422,9 @@ Remove-Item C:\Users\SureVision\Desktop\start.cmd -Force 2>$null
 Write-Output 'Remove old RunNetworkProxy scehduled task...'
 Unregister-ScheduledTask -TaskName 'RunNetworkProxy' -Confirm:$false
 
+Write-Output 'Stop the DeviceProxy.exe process...'
+taskkill /IM DeviceProxy.exe /F
+
 Write-Output 'Installing scoop...'
 $env:SCOOP = 'C:\scoop'
 [environment]::setEnvironmentVariable('SCOOP', $env:SCOOP, 'User')

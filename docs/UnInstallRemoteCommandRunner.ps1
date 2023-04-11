@@ -19,6 +19,7 @@ scoop uninstall RemoteCommandRunner
 scoop uninstall serman
 scoop uninstall 7zip
 scoop uninstall git
+scoop uninstall aria2
 scoop uninstall scoop $myshell.sendkeys('Y') $myshell.sendkeys('{ENTER}')
 
 Remove-Item -Recurse 'C:\scoop'

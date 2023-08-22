@@ -4,8 +4,9 @@
 Ensure the Ethernet connection to the switch (connected to the internet) is made prior to installation, otherwise the automatic network configuration will throw an exception and abort the installation.
 
 On Both PCs:
-    1. Connect the longer Ethernet cable from the PCs to the swith to the left most port (when looking from the front of the PC)
-    2. Connect the short Ethernet cable between the PCs to the right most port (when looking from the front of the PC)
+    1. Connect the longer Ethernet cable from PC-A to the swith to the left most port (when looking from the front of the PC)
+    2. Connect the short Ethernet cable between PC-A and the DPEMS to the right most port (when looking from the front of the PC)
+    3. Connect the Ethernet cable from PC-B to the swtich to the left most port (when looking from the front of the PC)
 
 # RemoteCommandRunner Installation
 

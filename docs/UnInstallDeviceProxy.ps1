@@ -103,4 +103,16 @@ scoop uninstall scoop $myshell.sendkeys('Y') $myshell.sendkeys('{ENTER}')
 Remove-Item -Recurse 'C:\scoop'
 Remove-Item -Recurse 'C:\serman'
 
+$taskName = 'DPUpdateDeviceProxy'
+$taskExists = Get-ScheduledTask | Where-Object { $_.TaskName -like $taskName }
+if ($taskExists)
+{
+    Unregister-ScheduledTask -TaskName "$taskName" -Confirm:$false 2>$null
+    Write-Output 'DPUpdateDeviceProxy Task removed successfully...'
+}
+else
+{
+    Write-Output 'No DPUpdateDeviceProxy task to remove...'
+}
+
 Write-Output 'DeviceProxy uninstallation complete'
